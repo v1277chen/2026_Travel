@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <!-- ============================================
+         頁面基本設定
+         - 設定字元編碼為 UTF-8
+         - 設定視窗縮放以適配行動裝置
+         - 載入 Google Fonts 字型
+    ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO 優化設定 -->
+    <title>2026 上海·成都·九寨溝·峨眉山·烏鎮 9日遊</title>
+    <meta name="description" content="精彩的9天旅程，從上海出發，探索成都美食、九寨溝仙境、峨眉山金頂、烏鎮水鄉。">
+    <meta name="keywords" content="旅遊, 上海, 成都, 九寨溝, 峨眉山, 烏鎮, 行程規劃">
+
+    <!-- 載入 Google Fonts - Inter 字型 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- 載入自定義樣式表 -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- ============================================
+         頁首區塊 (Hero Section)
+         - 顯示行程標題和日期範圍
+         - 包含背景漸層和動態效果
+    ============================================ -->
+    <header class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">2026 春季旅行</span>
+            <h1 class="hero-title">上海·成都·九寨溝·峨眉山·烏鎮</h1>
+            <p class="hero-subtitle">9 天深度探索之旅</p>
+            <div class="hero-dates">
+                <span class="date-badge">🗓️ 3月28日 - 4月5日</span>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">天</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">城市</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">航班</span>
+                </div>
+            </div>
+            <a href="#day1" class="scroll-indicator">
+                <span>開始探索</span>
+                <div class="scroll-arrow"></div>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================
+         時間軸導航列 (Timeline Navigation)
+         - 固定於畫面側邊
+         - 點擊可跳轉至對應日期
+    ============================================ -->
+    <nav class="timeline-nav" id="timelineNav">
+        <div class="nav-title">行程導覽</div>
+        <ul class="nav-list">
+            <li><a href="#day1" class="nav-item active" data-day="1"><span class="nav-dot"></span><span
+                        class="nav-text">D1 上海</span></a></li>
+            <li><a href="#day2" class="nav-item" data-day="2"><span class="nav-dot"></span><span class="nav-text">D2
+                        成都</span></a></li>
+            <li><a href="#day3" class="nav-item" data-day="3"><span class="nav-dot"></span><span class="nav-text">D3
+                        黃龍</span></a></li>
+            <li><a href="#day4" class="nav-item" data-day="4"><span class="nav-dot"></span><span class="nav-text">D4
+                        九寨溝</span></a></li>
+            <li><a href="#day5" class="nav-item" data-day="5"><span class="nav-dot"></span><span class="nav-text">D5
+                        成都</span></a></li>
+            <li><a href="#day6" class="nav-item" data-day="6"><span class="nav-dot"></span><span class="nav-text">D6
+                        樂山</span></a></li>
+            <li><a href="#day7" class="nav-item" data-day="7"><span class="nav-dot"></span><span class="nav-text">D7
+                        峨眉山</span></a></li>
+            <li><a href="#day8" class="nav-item" data-day="8"><span class="nav-dot"></span><span class="nav-text">D8
+                        烏鎮</span></a></li>
+            <li><a href="#day9" class="nav-item" data-day="9"><span class="nav-dot"></span><span class="nav-text">D9
+                        返程</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================
+         主要內容區塊 (Main Content)
+         - 包含所有 9 天的行程卡片
+    ============================================ -->
+    <main class="main-content">
+
+        <!-- ========== Day 1: 3月28日 高雄 → 上海 ========== -->
+        <section class="day-section" id="day1">
+            <div class="day-header">
+                <div class="day-number">01</div>
+                <div class="day-info">
+                    <span class="day-date">3月28日 (六)</span>
+                    <h2 class="day-title">高雄 → 上海浦東</h2>
+                    <p class="day-highlight">南京步行街・外灘夜景・萬國建築群</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 交通卡片：集合出發 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚐</div>
+                    <div class="card-body">
+                        <span class="card-time">09:00</span>
+                        <h3 class="card-title">南臺集合出發</h3>
+                        <p class="card-desc">包車前往機場（1700元/9人座，共2車2線）</p>
+                        <a href="https://www.rome2rio.com/zh/map/台湾台南市永康区南台街南臺科技大學/高雄国际机场-KHH" target="_blank"
+                            class="card-link">
+                            📍 包車前往機場
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 交通卡片：機場集合 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">✈️</div>
+                    <div class="card-body">
+                        <span class="card-time">10:10</span>
+                        <h3 class="card-title">高雄機場集合</h3>
+                        <p class="card-desc">準備通關手續</p>
+                    </div>
+                </div>
+
+                <!-- 航班卡片 -->
+                <div class="card card-flight fade-in">
+                    <div class="flight-header">
+                        <span class="airline">吉祥航空 HO1312</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="flight-city">
+                            <span class="flight-time">12:45</span>
+                            <span class="flight-name">高雄 KHH</span>
+                        </div>
+                        <div class="flight-line">
+                            <span class="flight-icon">✈</span>
+                        </div>
+                        <div class="flight-city">
+                            <span class="flight-time">14:55</span>
+                            <span class="flight-name">上海浦東 T2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 交通選項卡片 -->
+                <div class="card card-info fade-in expandable" data-expanded="false">
+                    <div class="card-header-expandable">
+                        <div class="card-icon">🚇</div>
+                        <div class="card-body">
+                            <h3 class="card-title">機場至市區交通方案</h3>
+                            <p class="card-desc">點擊查看詳細方案比較</p>
+                        </div>
+                        <div class="expand-icon">▼</div>
+                    </div>
+                    <div class="card-expand-content">
+                        <div class="transport-option">
+                            <h4>🔷 方案一：地鐵2號線</h4>
+                            <p>搭乘地鐵2號線直達南京東路站，步行至天津路</p>
+                            <div class="option-tags">
+                                <span class="tag tag-price">💰 約 7-9 元</span>
+                                <span class="tag tag-time">⏱️ 約 1小時10分鐘</span>
+                                <span class="tag tag-recommend">最省錢方案</span>
+                            </div>
+                        </div>
+                        <div class="transport-option">
+                            <h4>🔷 方案二：磁浮列車 + 地鐵</h4>
+                            <p>搭磁浮列車到龍陽路站，再轉乘地鐵2號線到南京東路</p>
+                            <div class="option-tags">
+                                <span class="tag tag-price">💰 普通票 50 元 (機票8折優惠)</span>
+                                <span class="tag tag-time">⏱️ 磁浮 8 分鐘 (時速430km/h)</span>
+                                <span class="tag tag-special">🚄 最快方案</span>
+                            </div>
+                            <p class="tip">💡 磁浮地鐵一票通：地鐵一日票+磁浮單程票 = 55元/張</p>
+                        </div>
+                        <div class="transport-option">
+                            <a href="https://www.rome2rio.com/zh/map/中国上海市浦东新区上海浦东国际机场T1航站楼/南京东路站" target="_blank"
+                                class="card-link">
+                                📍 上海浦東T2至南京東路站
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 住宿卡片 -->
+                <div class="card card-hotel fade-in">
+                    <div class="card-icon">🏨</div>
+                    <div class="card-body">
+                        <h3 class="card-title">YUNIK飯店</h3>
+                        <p class="card-desc">上海南京東路步行街地鐵站店</p>
+                        <a href="https://www.rome2rio.com/zh/map/南京东路站/中国上海黃浦區天津路479号" target="_blank"
+                            class="card-link">
+                            📍 南京東路站至上海黃浦區天津路479號
+                        </a>
+                        <a href="https://www.google.com/maps/search/上海黃浦區天津路479號" target="_blank" class="card-link">
+                            📍 上海黃浦區天津路479號
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 景點推薦 -->
+                <div class="card card-attraction fade-in">
+                    <div class="card-icon">🏛️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">推薦景點</h3>
+                        <div class="attraction-list">
+                            <div class="attraction-item">
+                                <span class="attraction-name">南京步行街</span>
+                                <span class="attraction-info">全長1.5公里</span>
+                            </div>
+                            <div class="attraction-item">
+                                <span class="attraction-name">和平飯店</span>
+                                <span class="attraction-info">歷史建築</span>
+                            </div>
+                            <div class="attraction-item">
+                                <span class="attraction-name">萬國建築群</span>
+                                <span class="attraction-info">外灘風光</span>
+                            </div>
+                            <a href="https://www.rome2rio.com/zh/map/南京东路站/中国上海市黄浦区天津路479号-邮政编码-200001?destination=中国上海市黄浦区天津路479号-邮政编码-200001&tripId=eUhMFkiqO0&search=中国上海市黄浦区南京路步行街,和平饭店,中国上海市徐汇区外滩-邮政编码-200030,中国上海市浦东新区陆家嘴世纪大道1号-邮政编码-200120#trips"
+                                target="_blank" class="card-link">
+                                📍 上海推薦景點
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 夜間活動 -->
+                <div class="card card-night fade-in">
+                    <div class="card-icon">🌃</div>
+                    <div class="card-body">
+                        <h3 class="card-title">夜間活動</h3>
+                        <p class="card-desc">東方明珠塔・夜遊黃浦江遊船</p>
+                        <p class="tip">📸 最佳拍照點：白玉蘭廣場L層-人民咖啡館 / 陸家嘴圓環天橋</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 2: 3月29日 上海 → 成都 ========== -->
+        <section class="day-section" id="day2">
+            <div class="day-header">
+                <div class="day-number">02</div>
+                <div class="day-info">
+                    <span class="day-date">3月29日 (日)</span>
+                    <h2 class="day-title">上海 → 成都</h2>
+                    <p class="day-highlight">太古裡・春熙路・九眼橋夜景</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 早起交通 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚇</div>
+                    <div class="card-body">
+                        <span class="card-time">06:30</span>
+                        <h3 class="card-title">搭乘地鐵10號線</h3>
+                        <p class="card-desc">前往虹橋機場T1航廈，車程約30-40分鐘</p>
+                    </div>
+                </div>
+
+                <!-- 航班卡片 -->
+                <div class="card card-flight fade-in">
+                    <div class="flight-header">
+                        <span class="airline">春秋航空 9C8887</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="flight-city">
+                            <span class="flight-time">08:55</span>
+                            <span class="flight-name">上海虹橋 T1</span>
+                        </div>
+                        <div class="flight-line">
+                            <span class="flight-icon">✈</span>
+                        </div>
+                        <div class="flight-city">
+                            <span class="flight-time">12:10</span>
+                            <span class="flight-name">成都天府 T2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 接機說明 -->
+                <div class="card card-info fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <h3 class="card-title">司機接機</h3>
+                        <p class="card-desc">司機接機後，前往酒店辦理入住</p>
+                        <p class="note">⚠️ 當天無導遊，司機僅負責接機並送回酒店</p>
+                    </div>
+                </div>
+
+                <!-- 自由活動推薦 -->
+                <div class="card card-attraction fade-in">
+                    <div class="card-icon">🛍️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">自由活動推薦</h3>
+                        <div class="attraction-list">
+                            <div class="attraction-item">
+                                <a href="https://www.google.com/maps/search/成都太古裡" target="_blank"
+                                    class="attraction-name link">太古裡 Taikoo Li</a>
+                                <span class="attraction-info">時尚購物區</span>
+                            </div>
+                            <div class="attraction-item">
+                                <a href="https://www.google.com/maps/search/成都春熙路" target="_blank"
+                                    class="attraction-name link">春熙路商圈</a>
+                                <span class="attraction-info">成都核心商業區</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 夜間活動 -->
+                <div class="card card-night fade-in">
+                    <div class="card-icon">🌉</div>
+                    <div class="card-body">
+                        <h3 class="card-title">九眼橋夜景</h3>
+                        <p class="card-desc">欣賞成都最美夜景，感受酒吧街氛圍</p>
+                    </div>
+                </div>
+
+                <!-- 高反注意事項 -->
+                <div class="card card-warning fade-in">
+                    <div class="card-icon">⚠️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">高反預防備註</h3>
+                        <p class="card-desc">擔心高反，今晚自己去藥局買 <strong>紅景天/丹木斯</strong></p>
+                        <div class="medicine-info">
+                            <p>📋 服用方式：上山前一天開始吃，一天2次、一次半顆，下了山就不用再吃</p>
+                            <p>💊 或在台灣直接去藥房買「海拔適」</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 3: 3月30日 成都 → 黃龍 ========== -->
+        <section class="day-section" id="day3">
+            <div class="day-header">
+                <div class="day-number">03</div>
+                <div class="day-info">
+                    <span class="day-date">3月30日 (一)</span>
+                    <h2 class="day-title">成都 → 黃龍景區</h2>
+                    <p class="day-highlight">高鐵・黃龍鈣華彩池・雪山森林</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 高鐵卡片 -->
+                <div class="card card-train fade-in">
+                    <div class="train-header">
+                        <span class="train-number">🚄 C5792</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="flight-city">
+                            <span class="flight-time">10:06</span>
+                            <span class="flight-name">成都</span>
+                        </div>
+                        <div class="flight-line">
+                            <span class="flight-icon">→</span>
+                            <span class="duration">約2.5小時</span>
+                        </div>
+                        <div class="flight-city">
+                            <span class="flight-time">12:34</span>
+                            <span class="flight-name">九寨黃龍站</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 車程說明 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <h3 class="card-title">司機接站</h3>
+                        <p class="card-desc">乘車前往黃龍景區（約50分鐘車程）</p>
+                    </div>
+                </div>
+
+                <!-- 黃龍景區 -->
+                <div class="card card-attraction fade-in">
+                    <div class="card-icon">🏔️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">黃龍景區遊覽</h3>
+                        <p class="card-subtitle">⏱️ 約4小時</p>
+                        <div class="highlight-list">
+                            <span class="highlight-item">✨ 鈣華彩池</span>
+                            <span class="highlight-item">🗻 雪山</span>
+                            <span class="highlight-item">🌲 森林</span>
+                        </div>
+                        <p class="tip">💡 建議：乘坐索道上行，步行下行，節省體力並觀賞全景</p>
+                    </div>
+                </div>
+
+                <!-- 前往住宿 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <h3 class="card-title">前往九寨溝口</h3>
+                        <p class="card-desc">遊覽結束後，乘專車前往九寨溝口酒店（約2小時車程）</p>
+                    </div>
+                </div>
+
+                <!-- 美食推薦 -->
+                <div class="card card-food fade-in">
+                    <div class="card-icon">🍜</div>
+                    <div class="card-body">
+                        <h3 class="card-title">美食建議</h3>
+                        <p class="card-desc">景區附近以團餐為主，建議找一家藏式餐廳品嚐：</p>
+                        <div class="food-list">
+                            <span class="food-item">🥩 犛牛肉</span>
+                            <span class="food-item">🍵 酥油茶</span>
+                            <span class="food-item">🫓 青稞餅</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 4: 3月31日 九寨溝深度遊 ========== -->
+        <section class="day-section" id="day4">
+            <div class="day-header">
+                <div class="day-number">04</div>
+                <div class="day-info">
+                    <span class="day-date">3月31日 (二)</span>
+                    <h2 class="day-title">九寨溝深度遊覽</h2>
+                    <p class="day-highlight">長海・五彩池・諾日朗瀑布・樹正群海</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 早餐 -->
+                <div class="card card-info fade-in">
+                    <div class="card-icon">🍳</div>
+                    <div class="card-body">
+                        <span class="card-time">07:00-08:00</span>
+                        <h3 class="card-title">酒店早餐</h3>
+                    </div>
+                </div>
+
+                <!-- 出發 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <span class="card-time">08:00-08:30</span>
+                        <h3 class="card-title">前往九寨溝景區</h3>
+                    </div>
+                </div>
+
+                <!-- 九寨溝遊覽 -->
+                <div class="card card-attraction card-featured fade-in">
+                    <div class="card-icon">🏞️</div>
+                    <div class="card-body">
+                        <span class="card-time">08:30-17:00</span>
+                        <h3 class="card-title">九寨溝深度遊覽</h3>
+                        <p class="card-subtitle">一日遊覽路線建議</p>
+                        <div class="route-suggestion">
+                            <p>🎯 乘車先到頂部，再由上往下遊覽：</p>
+                            <div class="route-items">
+                                <span class="route-item">1️⃣ 長海</span>
+                                <span class="route-arrow">→</span>
+                                <span class="route-item">2️⃣ 五彩池</span>
+                                <span class="route-arrow">→</span>
+                                <span class="route-item">3️⃣ 諾日朗瀑布</span>
+                                <span class="route-arrow">→</span>
+                                <span class="route-item">4️⃣ 樹正群海</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 晚間活動 -->
+                <div class="card card-night fade-in expandable" data-expanded="false">
+                    <div class="card-header-expandable">
+                        <div class="card-icon">🎭</div>
+                        <div class="card-body">
+                            <h3 class="card-title">晚間活動</h3>
+                            <p class="card-desc">自費選項：九寨千古情演出</p>
+                        </div>
+                        <div class="expand-icon">▼</div>
+                    </div>
+                    <div class="card-expand-content">
+                        <div class="show-info">
+                            <h4>🎪 九寨千古情演出</h4>
+                            <p>大型原生態歌舞劇，展現藏羌文化精髓</p>
+                            <span class="optional-tag">💰 自費項目</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 美食推薦 -->
+                <div class="card card-food fade-in">
+                    <div class="card-icon">🍜</div>
+                    <div class="card-body">
+                        <h3 class="card-title">美食建議</h3>
+                        <div class="food-category">
+                            <h4>📍 景區內</h4>
+                            <p>諾日朗餐廳提供自助餐。建議自備乾糧和水。</p>
+                        </div>
+                        <div class="food-category">
+                            <h4>📍 九寨溝口</h4>
+                            <p>晚餐推薦高山蔬菜和野菌燉雞</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 5: 4月1日 九寨溝 → 成都 ========== -->
+        <section class="day-section" id="day5">
+            <div class="day-header">
+                <div class="day-number">05</div>
+                <div class="day-info">
+                    <span class="day-date">4月1日 (三)</span>
+                    <h2 class="day-title">返回成都 - 歷史文化遊</h2>
+                    <p class="day-highlight">武侯祠・錦里・寬窄巷子</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 早餐 -->
+                <div class="card card-info fade-in">
+                    <div class="card-icon">🍳</div>
+                    <div class="card-body">
+                        <span class="card-time">08:30-09:15</span>
+                        <h3 class="card-title">酒店早餐</h3>
+                    </div>
+                </div>
+
+                <!-- 前往高鐵站 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <span class="card-time">09:00-11:30</span>
+                        <h3 class="card-title">乘車前往黃龍九寨高鐵站</h3>
+                    </div>
+                </div>
+
+                <!-- 高鐵 -->
+                <div class="card card-train fade-in">
+                    <div class="train-header">
+                        <span class="train-number">🚄 動車</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="flight-city">
+                            <span class="flight-time">12:10</span>
+                            <span class="flight-name">黃龍九寨</span>
+                        </div>
+                        <div class="flight-line">
+                            <span class="flight-icon">→</span>
+                            <span class="duration">約2小時</span>
+                        </div>
+                        <div class="flight-city">
+                            <span class="flight-time">14:17</span>
+                            <span class="flight-name">成都東站</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 成都景點 -->
+                <div class="card card-attraction fade-in">
+                    <div class="card-icon">🏛️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">成都歷史文化遊</h3>
+                        <div class="attraction-grid">
+                            <div class="attraction-card">
+                                <span class="attraction-num">1</span>
+                                <a href="https://www.google.com/maps/search/成都武侯祠" target="_blank"
+                                    class="attraction-name link">武侯祠</a>
+                                <p>瞭解三國歷史遺跡，體驗三國文化</p>
+                            </div>
+                            <div class="attraction-card">
+                                <span class="attraction-num">2</span>
+                                <a href="https://www.google.com/maps/search/成都錦里" target="_blank"
+                                    class="attraction-name link">錦里一條街</a>
+                                <p>遊覽明清古街，感受川西民俗</p>
+                            </div>
+                            <div class="attraction-card">
+                                <span class="attraction-num">3-1</span>
+                                <a href="https://www.google.com/maps/search/成都寬窄巷子" target="_blank"
+                                    class="attraction-name link">寬窄巷子</a>
+                                <p>體驗老成都的「慢生活」</p>
+                            </div>
+                            <div class="attraction-card">
+                                <span class="attraction-num">3-2</span>
+                                <a href="https://www.google.com/maps/search/成都琴台路" target="_blank"
+                                    class="attraction-name link">琴台路</a>
+                                <p>仿古街道，以珠寶和美食為主</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 美食推薦 -->
+                <div class="card card-food fade-in">
+                    <div class="card-icon">🍜</div>
+                    <div class="card-body">
+                        <h3 class="card-title">美食建議</h3>
+                        <div class="food-category">
+                            <h4>📍 錦里</h4>
+                            <p>美食小吃匯集地</p>
+                            <div class="food-list">
+                                <span class="food-item">🍡 三大炮</span>
+                                <span class="food-item">🌶️ 傷心涼粉</span>
+                                <span class="food-item">🥩 張飛牛肉</span>
+                                <span class="food-item">🥟 葷素抄手</span>
+                            </div>
+                        </div>
+                        <div class="food-category">
+                            <h4>📍 寬窄巷子/琴台路</h4>
+                            <p>可找一家茶館體驗蓋碗茶和川劇變臉表演</p>
+                            <div class="food-list">
+                                <span class="food-item">🍵 蓋碗茶</span>
+                                <span class="food-item">🐰 麻辣兔頭</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 6: 4月2日 熊貓基地 & 樂山 ========== -->
+        <section class="day-section" id="day6">
+            <div class="day-header">
+                <div class="day-number">06</div>
+                <div class="day-info">
+                    <span class="day-date">4月2日 (四)</span>
+                    <h2 class="day-title">熊貓基地 & 樂山大佛</h2>
+                    <p class="day-highlight">大熊貓繁育研究基地・船遊樂山大佛</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 熊貓基地 -->
+                <div class="card card-attraction card-featured fade-in">
+                    <div class="card-icon">🐼</div>
+                    <div class="card-body">
+                        <h3 class="card-title">大熊貓繁育研究基地</h3>
+                        <p class="card-subtitle">⏱️ 開放時間：07:30-18:00</p>
+                        <div class="info-box">
+                            <p>🚗 約40分鐘車程抵達</p>
+                            <p>⏰ 建議早上09:00前入園（大熊貓最活躍時段）</p>
+                            <p>💡 優先前往幼年大熊貓別墅，觀看幼崽機會較大</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 午餐 -->
+                <div class="card card-info fade-in">
+                    <div class="card-icon">🍽️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">自行午餐</h3>
+                    </div>
+                </div>
+
+                <!-- 樂山大佛 -->
+                <div class="card card-attraction card-featured fade-in">
+                    <div class="card-icon">🗿</div>
+                    <div class="card-body">
+                        <h3 class="card-title">樂山大佛</h3>
+                        <p class="card-subtitle">約15:00抵達</p>
+                        <div class="highlight-box">
+                            <p>🚢 <strong>船遊樂山大佛</strong></p>
+                            <p class="quote">「山是一尊佛，佛是一座山」</p>
+                            <p>體驗從江面欣賞71米高的世界最大石刻佛像</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 7: 4月3日 峨眉山 → 上海 ========== -->
+        <section class="day-section" id="day7">
+            <div class="day-header">
+                <div class="day-number">07</div>
+                <div class="day-info">
+                    <span class="day-date">4月3日 (五)</span>
+                    <h2 class="day-title">峨眉山金頂 → 上海</h2>
+                    <p class="day-highlight">十方普賢金像・金頂四大奇觀</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 峨眉山 -->
+                <div class="card card-attraction card-featured fade-in">
+                    <div class="card-icon">⛰️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">峨眉山金頂</h3>
+                        <div class="route-detail">
+                            <div class="route-step">
+                                <span class="step-icon">🚗</span>
+                                <span class="step-text">乘車前往峨眉山景區</span>
+                            </div>
+                            <div class="route-step">
+                                <span class="step-icon">🚌</span>
+                                <span class="step-text">換乘景區觀光車（約1.5小時）→ 雷洞坪停車場</span>
+                            </div>
+                            <div class="route-step">
+                                <span class="step-icon">🚶</span>
+                                <span class="step-text">步行20分鐘</span>
+                            </div>
+                            <div class="route-step">
+                                <span class="step-icon">🚡</span>
+                                <span class="step-text">乘坐索道（約3分鐘）→ 峨眉金頂</span>
+                            </div>
+                        </div>
+                        <div class="highlight-list">
+                            <span class="highlight-item">🏆 48米十方普賢金像</span>
+                            <span class="highlight-item">✨ 金頂四大奇觀</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 前往機場 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <span class="card-time">約15:00</span>
+                        <h3 class="card-title">乘車前往天府機場</h3>
+                        <p class="card-desc">約2.5小時車程，19:00前抵達成都天府T2</p>
+                    </div>
+                </div>
+
+                <!-- 航班 -->
+                <div class="card card-flight fade-in">
+                    <div class="flight-header">
+                        <span class="airline">春秋航空 9C8820</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="flight-city">
+                            <span class="flight-time">20:30</span>
+                            <span class="flight-name">成都天府 T2</span>
+                        </div>
+                        <div class="flight-line">
+                            <span class="flight-icon">✈</span>
+                        </div>
+                        <div class="flight-city">
+                            <span class="flight-time">23:40</span>
+                            <span class="flight-name">上海虹橋 T1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 住宿 -->
+                <div class="card card-hotel fade-in">
+                    <div class="card-icon">🏨</div>
+                    <div class="card-body">
+                        <h3 class="card-title">滴水山房花園飯店</h3>
+                        <p class="card-desc">上海虹橋機場國家會展中心店</p>
+                        <a href="https://www.google.com/maps/search/上海長寧區空港一路366號" target="_blank" class="card-link">
+                            📍 上海長寧區空港一路366號
+                        </a>
+                        <p class="tip">🚶 從虹橋第一航廈步行約3分鐘（160公尺）</p>
+                    </div>
+                </div>
+
+                <!-- 美食 -->
+                <div class="card card-food fade-in">
+                    <div class="card-icon">🍜</div>
+                    <div class="card-body">
+                        <h3 class="card-title">美食建議</h3>
+                        <p>📍 峨眉山區：早餐或午餐推薦</p>
+                        <div class="food-list">
+                            <span class="food-item">🥣 峨眉山豆腐腦</span>
+                            <span class="food-item">🥬 峨眉素齋</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 8: 4月4日 烏鎮 ========== -->
+        <section class="day-section" id="day8">
+            <div class="day-header">
+                <div class="day-number">08</div>
+                <div class="day-info">
+                    <span class="day-date">4月4日 (六)</span>
+                    <h2 class="day-title">烏鎮西柵一日遊</h2>
+                    <p class="day-highlight">江南水鄉・古鎮風情</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 交通資訊 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <h3 class="card-title">前往烏鎮</h3>
+                        <p class="card-desc">單程177公里，約1.5小時車程</p>
+                    </div>
+                </div>
+
+                <!-- 烏鎮景區 -->
+                <div class="card card-attraction card-featured fade-in">
+                    <div class="card-icon">🏘️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">烏鎮西柵景區</h3>
+                        <p class="card-desc">漫步江南水鄉，體驗古鎮慢生活</p>
+                        <div class="highlight-list">
+                            <span class="highlight-item">🌊 水鄉風光</span>
+                            <span class="highlight-item">🏮 古鎮街道</span>
+                            <span class="highlight-item">🌙 夜景燈火</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 住宿 -->
+                <div class="card card-hotel fade-in">
+                    <div class="card-icon">🏨</div>
+                    <div class="card-body">
+                        <h3 class="card-title">烏鎮麗呈飯店</h3>
+                        <p class="card-desc">西柵景區店</p>
+                        <a href="https://www.google.com/maps/search/桐鄉烏鎮鎮新華南路501號" target="_blank" class="card-link">
+                            📍 桐鄉, 烏鎮鎮新華南路501號
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Day 9: 4月5日 返程 ========== -->
+        <section class="day-section" id="day9">
+            <div class="day-header">
+                <div class="day-number">09</div>
+                <div class="day-info">
+                    <span class="day-date">4月5日 (日)</span>
+                    <h2 class="day-title">上海一日遊 & 返程</h2>
+                    <p class="day-highlight">田子坊・武康路・南京路・返回高雄</p>
+                </div>
+            </div>
+
+            <div class="day-content">
+                <!-- 返回上海 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <h3 class="card-title">返回上海市區</h3>
+                    </div>
+                </div>
+
+                <!-- 上海景點 -->
+                <div class="card card-attraction fade-in">
+                    <div class="card-icon">🏛️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">上海一日遊</h3>
+                        <div class="attraction-list">
+                            <div class="attraction-item">
+                                <a href="https://www.google.com/maps/search/上海田子坊" target="_blank"
+                                    class="attraction-name link">田子坊</a>
+                                <span class="attraction-info">文創藝術區</span>
+                            </div>
+                            <div class="attraction-item">
+                                <a href="https://www.google.com/maps/search/上海武康路" target="_blank"
+                                    class="attraction-name link">武康路</a>
+                                <span class="attraction-info">歷史街區</span>
+                            </div>
+                            <div class="attraction-item">
+                                <a href="https://www.google.com/maps/search/上海南京路" target="_blank"
+                                    class="attraction-name link">南京路</a>
+                                <span class="attraction-info">購物大道</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 前往機場 -->
+                <div class="card card-transport fade-in">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-body">
+                        <h3 class="card-title">前往浦東機場</h3>
+                        <p class="card-desc">18:30前抵達上海浦東T2</p>
+                    </div>
+                </div>
+
+                <!-- 返程航班 -->
+                <div class="card card-flight card-featured fade-in">
+                    <div class="flight-header">
+                        <span class="airline">長榮航空 BR705</span>
+                        <span class="flight-badge">🏠 返程</span>
+                    </div>
+                    <div class="flight-route">
+                        <div class="flight-city">
+                            <span class="flight-time">20:05</span>
+                            <span class="flight-name">上海浦東 T2</span>
+                        </div>
+                        <div class="flight-line">
+                            <span class="flight-icon">✈</span>
+                        </div>
+                        <div class="flight-city">
+                            <span class="flight-time">22:20</span>
+                            <span class="flight-name">高雄 KHH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 結束卡片 -->
+                <div class="card card-end fade-in">
+                    <div class="end-content">
+                        <span class="end-icon">🎉</span>
+                        <h3>旅程圓滿結束</h3>
+                        <p>期待下次的精彩旅程！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         頁尾區塊 (Footer)
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2026 春季旅行 | 上海·成都·九寨溝·峨眉山·烏鎮 9日遊</p>
+            <p class="footer-date">3月28日 - 4月5日</p>
+        </div>
+    </footer>
+
+    <!-- 載入互動邏輯腳本 -->
+    <script src="index.js"></script>
+</body>
+
+</html>

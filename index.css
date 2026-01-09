@@ -1,0 +1,1174 @@
+/* ============================================
+   旅遊行程網頁樣式表
+   - 主題配色設定
+   - 玻璃擬態效果
+   - 響應式設計
+   - 動畫效果
+============================================ */
+
+/* ============================================
+   CSS 變數定義
+   - 定義全域配色、間距、圓角等設計代幣
+============================================ */
+:root {
+    /* 主題色彩 - 採用深藍到橙色的漸層配色 */
+    --primary-dark: #0f172a;          /* 深夜藍 - 主背景色 */
+    --primary-mid: #1e293b;           /* 中藍灰 - 卡片背景 */
+    --primary-light: #334155;         /* 淺藍灰 */
+    
+    /* 強調色 - 用於重點元素 */
+    --accent-blue: #38bdf8;           /* 天空藍 */
+    --accent-cyan: #22d3ee;           /* 青綠色 */
+    --accent-orange: #fb923c;         /* 暖橙色 */
+    --accent-yellow: #fbbf24;         /* 金黃色 */
+    --accent-pink: #f472b6;           /* 粉紅色 */
+    --accent-purple: #a78bfa;         /* 紫色 */
+    --accent-green: #4ade80;          /* 翠綠色 */
+    
+    /* 文字顏色 */
+    --text-primary: #f1f5f9;          /* 主要文字 - 白色 */
+    --text-secondary: #94a3b8;        /* 次要文字 - 灰色 */
+    --text-muted: #64748b;            /* 淡化文字 */
+    
+    /* 玻璃擬態效果 */
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    /* 間距與圓角 */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    
+    /* 過渡動畫時間 */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* 時間軸導航寬度 */
+    --nav-width: 140px;
+}
+
+/* ============================================
+   基礎重置與全域樣式
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--primary-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ============================================
+   Hero 頁首區塊
+   - 全螢幕視覺展示
+   - 漸層背景與動態效果
+============================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, 
+        #0f172a 0%, 
+        #1e3a5f 25%, 
+        #0f4c75 50%, 
+        #1e293b 75%, 
+        #0f172a 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+}
+
+/* 背景漸層動畫 */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hero 覆蓋層 - 添加星光效果 */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(251, 146, 60, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(34, 211, 238, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+}
+
+/* Hero 徽章 */
+.hero-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+    color: var(--primary-dark);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: var(--spacing-lg);
+    animation: fadeInDown 0.8s ease;
+}
+
+/* Hero 標題 */
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+/* 日期徽章 */
+.hero-dates {
+    margin-bottom: var(--spacing-xl);
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.date-badge {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    font-size: 1.125rem;
+}
+
+/* 統計資料 */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+    animation: fadeInUp 0.8s ease 0.8s both;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* 滾動指示器 */
+.scroll-indicator {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    animation: fadeInUp 0.8s ease 1s both;
+    transition: color var(--transition-fast);
+}
+
+.scroll-indicator:hover {
+    color: var(--accent-cyan);
+}
+
+.scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+    40% { transform: translateY(10px) rotate(45deg); }
+    60% { transform: translateY(5px) rotate(45deg); }
+}
+
+/* ============================================
+   時間軸導航列
+   - 固定於畫面左側
+   - 追蹤當前滾動位置
+============================================ */
+.timeline-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--nav-width);
+    padding: var(--spacing-lg);
+    background: var(--glass-bg);
+    border-right: 1px solid var(--glass-border);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+.timeline-nav.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-title {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    margin-bottom: 4px;
+}
+
+.nav-item:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item.active {
+    color: var(--accent-cyan);
+}
+
+.nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.nav-item.active .nav-dot {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.nav-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ============================================
+   主要內容區塊
+============================================ */
+.main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    padding-left: calc(var(--nav-width) + var(--spacing-xl));
+}
+
+/* ============================================
+   日期區塊
+   - 每天的行程容器
+============================================ */
+.day-section {
+    margin-bottom: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+}
+
+/* 日期標題區 */
+.day-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.day-number {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.8;
+}
+
+.day-info {
+    flex: 1;
+}
+
+.day-date {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--accent-orange);
+    color: var(--primary-dark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.day-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.day-highlight {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+/* ============================================
+   卡片元件
+   - 玻璃擬態設計
+   - 不同類型的卡片樣式
+============================================ */
+.day-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: var(--glass-shadow);
+}
+
+/* 卡片圖示 */
+.card-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+}
+
+/* 卡片內容 */
+.card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-time {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--accent-cyan);
+    color: var(--primary-dark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    color: var(--accent-cyan);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-desc {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-blue);
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+    transition: color var(--transition-fast);
+}
+
+.card-link:hover {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+}
+
+/* 提示文字 */
+.tip {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(251, 191, 36, 0.1);
+    border-left: 3px solid var(--accent-yellow);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.875rem;
+    color: var(--accent-yellow);
+}
+
+.note {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(251, 146, 60, 0.1);
+    border-left: 3px solid var(--accent-orange);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.875rem;
+    color: var(--accent-orange);
+}
+
+/* ============================================
+   航班卡片特殊樣式
+============================================ */
+.card-flight {
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(34, 211, 238, 0.05));
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.flight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.airline {
+    font-weight: 600;
+    color: var(--accent-cyan);
+}
+
+.flight-badge {
+    padding: 2px 8px;
+    background: var(--accent-green);
+    color: var(--primary-dark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.flight-route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--spacing-md);
+}
+
+.flight-city {
+    text-align: center;
+}
+
+.flight-time {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.flight-name {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.flight-line {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.flight-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+    transform: translateY(-50%);
+}
+
+.flight-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 1.25rem;
+    background: var(--primary-mid);
+    padding: 0 var(--spacing-sm);
+}
+
+.duration {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ============================================
+   高鐵卡片樣式
+============================================ */
+.card-train {
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 211, 238, 0.05));
+    border-color: rgba(74, 222, 128, 0.3);
+}
+
+.train-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.train-number {
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+/* ============================================
+   可展開卡片
+============================================ */
+.expandable {
+    cursor: pointer;
+}
+
+.expandable .card-header-expandable {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.expand-icon {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    transition: transform var(--transition-fast);
+    margin-left: auto;
+}
+
+.expandable[data-expanded="true"] .expand-icon {
+    transform: rotate(180deg);
+}
+
+.card-expand-content {
+    display: none;
+    width: 100%;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--glass-border);
+}
+
+.expandable[data-expanded="true"] .card-expand-content {
+    display: block;
+}
+
+/* 交通選項 */
+.transport-option {
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.transport-option:last-child {
+    margin-bottom: 0;
+}
+
+.transport-option h4 {
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.transport-option p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.option-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.tag {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tag-price {
+    background: rgba(74, 222, 128, 0.2);
+    color: var(--accent-green);
+}
+
+.tag-time {
+    background: rgba(56, 189, 248, 0.2);
+    color: var(--accent-blue);
+}
+
+.tag-recommend {
+    background: rgba(251, 191, 36, 0.2);
+    color: var(--accent-yellow);
+}
+
+.tag-special {
+    background: rgba(244, 114, 182, 0.2);
+    color: var(--accent-pink);
+}
+
+/* ============================================
+   住宿卡片
+============================================ */
+.card-hotel {
+    border-left: 4px solid var(--accent-purple);
+}
+
+/* ============================================
+   景點卡片
+============================================ */
+.card-attraction {
+    border-left: 4px solid var(--accent-cyan);
+}
+
+.attraction-list {
+    margin-top: var(--spacing-sm);
+}
+
+.attraction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.attraction-item:last-child {
+    border-bottom: none;
+}
+
+.attraction-name {
+    font-weight: 500;
+}
+
+.attraction-name.link {
+    color: var(--accent-blue);
+    transition: color var(--transition-fast);
+}
+
+.attraction-name.link:hover {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+}
+
+.attraction-info {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+/* 景點網格 */
+.attraction-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.attraction-card {
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.attraction-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.attraction-num {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: var(--accent-cyan);
+    color: var(--primary-dark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-xs);
+}
+
+.attraction-card p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* 高亮列表 */
+.highlight-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.highlight-item {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   夜間活動卡片
+============================================ */
+.card-night {
+    border-left: 4px solid var(--accent-purple);
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(244, 114, 182, 0.05));
+}
+
+/* ============================================
+   美食卡片
+============================================ */
+.card-food {
+    border-left: 4px solid var(--accent-orange);
+}
+
+.food-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.food-item {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(251, 146, 60, 0.1);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+}
+
+.food-category {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+}
+
+.food-category:first-child {
+    margin-top: var(--spacing-sm);
+}
+
+.food-category h4 {
+    color: var(--accent-orange);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.food-category p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   警告卡片
+============================================ */
+.card-warning {
+    border-left: 4px solid var(--accent-yellow);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 146, 60, 0.05));
+}
+
+.medicine-info {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: rgba(251, 191, 36, 0.1);
+    border-radius: var(--radius-md);
+}
+
+.medicine-info p {
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.medicine-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   特色卡片 (Featured)
+============================================ */
+.card-featured {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(34, 211, 238, 0.1));
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.info-box {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+}
+
+.info-box p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight-box {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(244, 114, 182, 0.05));
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.highlight-box p {
+    margin-bottom: var(--spacing-xs);
+}
+
+.highlight-box .quote {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-purple);
+    font-style: italic;
+}
+
+/* 路線詳細 */
+.route-detail {
+    margin-top: var(--spacing-md);
+}
+
+.route-step {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+}
+
+.step-icon {
+    font-size: 1.25rem;
+}
+
+/* 路線順序 */
+.route-suggestion {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+}
+
+.route-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.route-item {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(56, 189, 248, 0.1);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+}
+
+.route-arrow {
+    color: var(--text-muted);
+}
+
+/* 演出資訊 */
+.show-info {
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+}
+
+.show-info h4 {
+    color: var(--accent-purple);
+    margin-bottom: var(--spacing-xs);
+}
+
+.show-info p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.optional-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(251, 191, 36, 0.2);
+    color: var(--accent-yellow);
+    font-size: 0.75rem;
+    border-radius: 50px;
+}
+
+/* ============================================
+   結束卡片
+============================================ */
+.card-end {
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(56, 189, 248, 0.1));
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.end-content {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.end-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--spacing-md);
+}
+
+.end-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--accent-green);
+}
+
+.end-content p {
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   淡入動畫
+============================================ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   頁尾
+============================================ */
+.footer {
+    text-align: center;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    background: var(--primary-mid);
+    border-top: 1px solid var(--glass-border);
+    margin-left: var(--nav-width);
+}
+
+.footer-content p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.footer-date {
+    margin-top: var(--spacing-xs);
+    color: var(--text-muted);
+}
+
+/* ============================================
+   響應式設計
+   - 平板與手機適配
+============================================ */
+@media (max-width: 1024px) {
+    .timeline-nav {
+        display: none;
+    }
+    
+    .main-content {
+        padding-left: var(--spacing-lg);
+    }
+    
+    .footer {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-stats {
+        gap: var(--spacing-lg);
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .day-header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .day-number {
+        font-size: 2.5rem;
+    }
+    
+    .day-title {
+        font-size: 1.375rem;
+    }
+    
+    .flight-route {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .flight-line {
+        transform: rotate(90deg);
+        width: 60px;
+        height: 30px;
+    }
+    
+    .attraction-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .route-items {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .route-arrow {
+        transform: rotate(90deg);
+        margin-left: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .card {
+        padding: var(--spacing-md);
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .food-list,
+    .highlight-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
