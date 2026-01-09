@@ -1,0 +1,66 @@
+# ============================================
+# GitHub Actions 自動部署到 GitHub Pages
+# ============================================
+# 
+# 功能說明：
+# - 當程式碼推送到 main 分支時自動觸發部署
+# - 將網頁檔案部署到 GitHub Pages
+#
+# 使用方式：
+# 1. 將專案推送到 GitHub 倉庫
+# 2. 在倉庫設定中啟用 GitHub Pages（選擇 GitHub Actions 作為來源）
+# 3. 之後每次推送都會自動更新網站
+
+name: 部署到 GitHub Pages
+
+# 觸發條件：當推送到 main 分支時執行
+on:
+  push:
+    branches:
+      - main
+  # 允許手動觸發部署
+  workflow_dispatch:
+
+# 設定 GITHUB_TOKEN 權限以允許部署到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 確保同時只執行一個部署任務
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # 建置任務
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 步驟 1：取得程式碼
+      - name: 取得程式碼
+        uses: actions/checkout@v4
+
+      # 步驟 2：設定 GitHub Pages
+      - name: 設定 Pages
+        uses: actions/configure-pages@v5
+
+      # 步驟 3：上傳建置產物
+      - name: 上傳產物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 上傳整個專案目錄
+          path: '.'
+
+  # 部署任務
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      # 步驟 1：部署到 GitHub Pages
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
