@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initScrollAnimations() {
     // 取得所有需要動畫的元素
     const fadeElements = document.querySelectorAll('.fade-in');
-    
+
     // 建立 Intersection Observer 實例
     // threshold: 0.1 表示當元素 10% 進入視窗時觸發
     const observer = new IntersectionObserver((entries) => {
@@ -44,7 +44,7 @@ function initScrollAnimations() {
         threshold: 0.1,      // 10% 可見時觸發
         rootMargin: '0px'    // 無額外邊距
     });
-    
+
     // 對每個元素進行觀察
     fadeElements.forEach(el => observer.observe(el));
 }
@@ -53,22 +53,25 @@ function initScrollAnimations() {
 // 時間軸導航功能
 // - 監控滾動位置，更新當前活動的日期
 // - 控制導航列的顯示/隱藏
+// - 同步更新手機版底部導航
 // ============================================
 function initTimelineNav() {
     const nav = document.getElementById('timelineNav');
+    const mobileNav = document.getElementById('mobileNav');
     const navItems = document.querySelectorAll('.nav-item');
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
     const daySections = document.querySelectorAll('.day-section');
     const hero = document.getElementById('hero');
-    
+
     // 如果必要元素不存在則返回
-    if (!nav || !daySections.length) return;
-    
+    if (!daySections.length) return;
+
     // 節流函數 - 限制函數執行頻率以提升效能
     // @param {Function} func - 需要節流的函數
     // @param {number} limit - 最小執行間隔（毫秒）
     function throttle(func, limit) {
         let inThrottle;
-        return function(...args) {
+        return function (...args) {
             if (!inThrottle) {
                 func.apply(this, args);
                 inThrottle = true;
@@ -76,24 +79,26 @@ function initTimelineNav() {
             }
         };
     }
-    
+
     // 更新導航狀態的函數
     function updateNav() {
         const scrollPos = window.scrollY;
         const windowHeight = window.innerHeight;
         const heroHeight = hero ? hero.offsetHeight : 0;
-        
-        // 控制導航列顯示/隱藏
+
+        // 控制桌面版導航列顯示/隱藏
         // 當滾動超過 Hero 區塊的 80% 時顯示導航
-        if (scrollPos > heroHeight * 0.8) {
-            nav.classList.add('visible');
-        } else {
-            nav.classList.remove('visible');
+        if (nav) {
+            if (scrollPos > heroHeight * 0.8) {
+                nav.classList.add('visible');
+            } else {
+                nav.classList.remove('visible');
+            }
         }
-        
+
         // 找出當前可見的日期區塊
         let currentSection = null;
-        
+
         daySections.forEach(section => {
             const rect = section.getBoundingClientRect();
             // 當區塊頂部進入視窗上半部時，設為當前區塊
@@ -101,8 +106,8 @@ function initTimelineNav() {
                 currentSection = section.id;
             }
         });
-        
-        // 更新導航項目的 active 狀態
+
+        // 更新桌面版導航項目的 active 狀態
         if (currentSection) {
             navItems.forEach(item => {
                 if (item.getAttribute('href') === `#${currentSection}`) {
@@ -111,12 +116,39 @@ function initTimelineNav() {
                     item.classList.remove('active');
                 }
             });
+
+            // 更新手機版底部導航的 active 狀態
+            mobileNavItems.forEach(item => {
+                if (item.getAttribute('href') === `#${currentSection}`) {
+                    item.classList.add('active');
+
+                    // 自動滾動讓當前項目可見（置中顯示）
+                    const container = document.querySelector('.mobile-nav-container');
+                    if (container) {
+                        const itemRect = item.getBoundingClientRect();
+                        const containerRect = container.getBoundingClientRect();
+                        const scrollLeft = container.scrollLeft;
+
+                        // 計算讓項目置中所需的滾動位置
+                        const itemCenter = itemRect.left + itemRect.width / 2;
+                        const containerCenter = containerRect.left + containerRect.width / 2;
+                        const offset = itemCenter - containerCenter;
+
+                        container.scrollTo({
+                            left: scrollLeft + offset,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    item.classList.remove('active');
+                }
+            });
         }
     }
-    
+
     // 綁定節流後的滾動事件
     window.addEventListener('scroll', throttle(updateNav, 100));
-    
+
     // 初始執行一次
     updateNav();
 }
@@ -127,20 +159,20 @@ function initTimelineNav() {
 // ============================================
 function initExpandableCards() {
     const expandableCards = document.querySelectorAll('.expandable');
-    
+
     expandableCards.forEach(card => {
         // 取得卡片標題區域（點擊區域）
         const header = card.querySelector('.card-header-expandable');
-        
+
         if (header) {
             header.addEventListener('click', (e) => {
                 // 防止連結等元素的預設行為
                 e.preventDefault();
-                
+
                 // 切換展開狀態
                 const isExpanded = card.getAttribute('data-expanded') === 'true';
                 card.setAttribute('data-expanded', !isExpanded);
-                
+
                 // 添加展開/收合動畫效果
                 const content = card.querySelector('.card-expand-content');
                 if (content) {
@@ -149,7 +181,7 @@ function initExpandableCards() {
                         content.style.display = 'block';
                         content.style.opacity = '0';
                         content.style.maxHeight = '0';
-                        
+
                         // 使用 requestAnimationFrame 確保動畫順暢
                         requestAnimationFrame(() => {
                             content.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
@@ -161,7 +193,7 @@ function initExpandableCards() {
                         content.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
                         content.style.opacity = '0';
                         content.style.maxHeight = '0';
-                        
+
                         // 動畫結束後隱藏元素
                         setTimeout(() => {
                             content.style.display = 'none';
@@ -180,28 +212,28 @@ function initExpandableCards() {
 function initSmoothScroll() {
     // 取得所有 hash 連結
     const hashLinks = document.querySelectorAll('a[href^="#"]');
-    
+
     hashLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            
+
             // 確保是有效的 hash 連結
             if (href && href.length > 1) {
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
-                
+
                 if (targetElement) {
                     e.preventDefault();
-                    
+
                     // 計算目標位置（考慮固定頁首的高度）
                     const offsetTop = targetElement.offsetTop - 20;
-                    
+
                     // 執行平滑滾動
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
                     });
-                    
+
                     // 更新 URL hash（不觸發跳轉）
                     history.pushState(null, null, href);
                 }
@@ -216,7 +248,7 @@ function initSmoothScroll() {
 window.addEventListener('load', () => {
     // 頁面完全載入後，移除載入狀態
     document.body.classList.add('loaded');
-    
+
     // 預先觸發 Hero 區塊的動畫
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {

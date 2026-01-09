@@ -12,29 +12,42 @@
 ============================================ */
 :root {
     /* 主題色彩 - 採用深藍到橙色的漸層配色 */
-    --primary-dark: #0f172a;          /* 深夜藍 - 主背景色 */
-    --primary-mid: #1e293b;           /* 中藍灰 - 卡片背景 */
-    --primary-light: #334155;         /* 淺藍灰 */
-    
+    --primary-dark: #0f172a;
+    /* 深夜藍 - 主背景色 */
+    --primary-mid: #1e293b;
+    /* 中藍灰 - 卡片背景 */
+    --primary-light: #334155;
+    /* 淺藍灰 */
+
     /* 強調色 - 用於重點元素 */
-    --accent-blue: #38bdf8;           /* 天空藍 */
-    --accent-cyan: #22d3ee;           /* 青綠色 */
-    --accent-orange: #fb923c;         /* 暖橙色 */
-    --accent-yellow: #fbbf24;         /* 金黃色 */
-    --accent-pink: #f472b6;           /* 粉紅色 */
-    --accent-purple: #a78bfa;         /* 紫色 */
-    --accent-green: #4ade80;          /* 翠綠色 */
-    
+    --accent-blue: #38bdf8;
+    /* 天空藍 */
+    --accent-cyan: #22d3ee;
+    /* 青綠色 */
+    --accent-orange: #fb923c;
+    /* 暖橙色 */
+    --accent-yellow: #fbbf24;
+    /* 金黃色 */
+    --accent-pink: #f472b6;
+    /* 粉紅色 */
+    --accent-purple: #a78bfa;
+    /* 紫色 */
+    --accent-green: #4ade80;
+    /* 翠綠色 */
+
     /* 文字顏色 */
-    --text-primary: #f1f5f9;          /* 主要文字 - 白色 */
-    --text-secondary: #94a3b8;        /* 次要文字 - 灰色 */
-    --text-muted: #64748b;            /* 淡化文字 */
-    
+    --text-primary: #f1f5f9;
+    /* 主要文字 - 白色 */
+    --text-secondary: #94a3b8;
+    /* 次要文字 - 灰色 */
+    --text-muted: #64748b;
+    /* 淡化文字 */
+
     /* 玻璃擬態效果 */
     --glass-bg: rgba(30, 41, 59, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
+
     /* 間距與圓角 */
     --spacing-xs: 0.5rem;
     --spacing-sm: 0.75rem;
@@ -42,17 +55,17 @@
     --spacing-lg: 1.5rem;
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
-    
+
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 24px;
-    
+
     /* 過渡動畫時間 */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
-    
+
     /* 時間軸導航寬度 */
     --nav-width: 140px;
 }
@@ -95,12 +108,12 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, 
-        #0f172a 0%, 
-        #1e3a5f 25%, 
-        #0f4c75 50%, 
-        #1e293b 75%, 
-        #0f172a 100%);
+    background: linear-gradient(135deg,
+            #0f172a 0%,
+            #1e3a5f 25%,
+            #0f4c75 50%,
+            #1e293b 75%,
+            #0f172a 100%);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     overflow: hidden;
@@ -108,9 +121,17 @@ a {
 
 /* 背景漸層動畫 */
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Hero 覆蓋層 - 添加星光效果 */
@@ -120,7 +141,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(251, 146, 60, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 40% 40%, rgba(34, 211, 238, 0.05) 0%, transparent 40%);
@@ -235,9 +256,22 @@ a {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
-    40% { transform: translateY(10px) rotate(45deg); }
-    60% { transform: translateY(5px) rotate(45deg); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    40% {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    60% {
+        transform: translateY(5px) rotate(45deg);
+    }
 }
 
 /* ============================================
@@ -1045,6 +1079,7 @@ a {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1056,6 +1091,7 @@ a {
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1091,11 +1127,11 @@ a {
     .timeline-nav {
         display: none;
     }
-    
+
     .main-content {
         padding-left: var(--spacing-lg);
     }
-    
+
     .footer {
         margin-left: 0;
     }
@@ -1105,44 +1141,44 @@ a {
     .hero-stats {
         gap: var(--spacing-lg);
     }
-    
+
     .stat-number {
         font-size: 2rem;
     }
-    
+
     .day-header {
         flex-direction: column;
         gap: var(--spacing-sm);
     }
-    
+
     .day-number {
         font-size: 2.5rem;
     }
-    
+
     .day-title {
         font-size: 1.375rem;
     }
-    
+
     .flight-route {
         flex-direction: column;
         gap: var(--spacing-sm);
     }
-    
+
     .flight-line {
         transform: rotate(90deg);
         width: 60px;
         height: 30px;
     }
-    
+
     .attraction-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .route-items {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .route-arrow {
         transform: rotate(90deg);
         margin-left: var(--spacing-lg);
@@ -1153,22 +1189,136 @@ a {
     .main-content {
         padding: var(--spacing-lg) var(--spacing-md);
     }
-    
+
     .card {
         padding: var(--spacing-md);
     }
-    
+
     .hero-title {
         font-size: 1.75rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
     }
-    
+
     .food-list,
     .highlight-list {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    /* 手機版主內容需要為底部導航預留空間 */
+    .main-content {
+        padding-bottom: 80px;
+    }
+
+    .footer {
+        padding-bottom: 80px;
+    }
+}
+
+/* ============================================
+   手機版底部浮動導航列
+   - 僅在手機螢幕寬度時顯示
+   - 可橫向滑動
+   - 固定於底部
+============================================ */
+.mobile-nav {
+    display: none;
+    /* 預設隱藏，手機版才顯示 */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: var(--spacing-sm) 0;
+    padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+}
+
+/* 導航容器 - 可橫向滾動 */
+.mobile-nav-container {
+    display: flex;
+    gap: var(--spacing-xs);
+    padding: 0 var(--spacing-sm);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.mobile-nav-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* 導航項目 */
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 56px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item:active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+/* 當前活動日期 */
+.mobile-nav-item.active {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(34, 211, 238, 0.15));
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.mobile-nav-day {
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.mobile-nav-city {
+    font-size: 0.625rem;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+/* 手機版顯示底部導航 */
+@media (max-width: 1024px) {
+    .mobile-nav {
+        display: block;
+    }
+}
+
+/* 更小螢幕的調整 */
+@media (max-width: 380px) {
+    .mobile-nav-item {
+        min-width: 50px;
+        padding: var(--spacing-xs);
+    }
+
+    .mobile-nav-day {
+        font-size: 0.8125rem;
+    }
+
+    .mobile-nav-city {
+        font-size: 0.5625rem;
     }
 }
