@@ -621,6 +621,55 @@ a {
     margin-top: 4px;
 }
 
+/* 行李資訊樣式 */
+.flight-baggage {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(56, 189, 248, 0.2);
+    width: 100%;
+}
+
+.baggage-title {
+    font-size: 0.875rem;
+    color: var(--accent-cyan);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.baggage-list {
+    display: grid;
+    gap: var(--spacing-xs);
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.baggage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.baggage-icon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.baggage-text {
+    flex: 1;
+}
+
+.baggage-note {
+    font-size: 0.75rem;
+    color: var(--accent-orange);
+    margin-top: 4px;
+    padding: 4px 8px;
+    background: rgba(251, 146, 60, 0.1);
+    border-radius: 4px;
+}
+
 /* ============================================
    高鐵卡片樣式
 ============================================ */
