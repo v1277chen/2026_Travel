@@ -1371,3 +1371,59 @@ a {
         font-size: 0.5625rem;
     }
 }
+
+/* ============================================
+   媒體說明樣式
+   - 用於圖片和影片下方的說明文字
+   - 支援響應式設計
+============================================ */
+
+/* 媒體容器 - 包裝圖片/影片和說明文字 */
+.media-figure {
+    width: 100%;
+    margin: 8px 0;
+    display: block;
+    text-decoration: none;
+}
+
+/* 媒體內容（圖片或影片）*/
+.media-figure img,
+.media-figure video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 說明文字樣式 */
+.media-caption {
+    padding: 8px 12px;
+    margin-top: 6px;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-cyan);
+    line-height: 1.5;
+}
+
+/* 可點擊的媒體容器 hover 效果 */
+a.media-figure:hover .media-caption {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
+    border-left-color: var(--accent-blue);
+}
+
+/* 影片專用說明樣式 */
+.media-figure video + .media-caption {
+    border-left-color: var(--accent-orange);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .media-caption {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+}
