@@ -41,8 +41,8 @@ function initScrollAnimations() {
             }
         });
     }, {
-        threshold: 0.1,      // 10% 可見時觸發
-        rootMargin: '0px'    // 無額外邊距
+        threshold: 0,        // 只要任何部分進入視窗即觸發（修復超大元素無法觸發的問題）
+        rootMargin: '50px'   // 提前 50px 觸發，讓滾動更順暢
     });
 
     // 對每個元素進行觀察
