@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTimelineNav();
     initExpandableCards();
     initSmoothScroll();
+    initCollapsibleDays();  // 初始化可折疊行程功能
 });
 
 // ============================================
@@ -255,3 +256,45 @@ window.addEventListener('load', () => {
         heroContent.classList.add('visible');
     }
 });
+
+// ============================================
+// 可折疊行程功能
+// - 根據當前日期與行程日期比較，決定預設展開或折疊
+// - 現在日期 ≤ 行程日期 → 展開（今天或未來的行程）
+// - 現在日期 > 行程日期 → 折疊（已過去的行程）
+// - 點擊 day-header 可手動切換折疊狀態
+// ============================================
+function initCollapsibleDays() {
+    // 取得當前日期（使用 UTC+8 台灣時區）
+    const now = new Date();
+    // 計算 UTC+8 的日期字串（YYYY-MM-DD 格式）
+    const utc8Offset = 8 * 60; // UTC+8 偏移量（分鐘）
+    const localOffset = now.getTimezoneOffset(); // 當地時區偏移量（分鐘，UTC 以西為正）
+    const utc8Time = new Date(now.getTime() + (utc8Offset + localOffset) * 60000);
+    const todayStr = utc8Time.toISOString().split('T')[0];
+
+    // 取得所有行程區塊
+    const daySections = document.querySelectorAll('.day-section');
+
+    daySections.forEach(section => {
+        // 從 data-date 屬性取得行程日期（格式：YYYY-MM-DD）
+        const sectionDate = section.getAttribute('data-date');
+        const dayContent = section.querySelector('.day-content');
+        const trigger = section.querySelector('.collapsible-trigger');
+
+        // 若缺少必要元素則跳過
+        if (!dayContent || !trigger || !sectionDate) return;
+
+        // 判斷是否應該折疊：現在日期 > 行程日期 → 折疊已過去的行程
+        const shouldCollapse = todayStr > sectionDate;
+
+        if (shouldCollapse) {
+            section.classList.add('collapsed');
+        }
+
+        // 綁定點擊事件：點擊 day-header 切換折疊/展開
+        trigger.addEventListener('click', () => {
+            section.classList.toggle('collapsed');
+        });
+    });
+}

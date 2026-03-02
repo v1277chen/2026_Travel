@@ -1416,7 +1416,7 @@ a.media-figure:hover .media-caption {
 }
 
 /* 影片專用說明樣式 */
-.media-figure video + .media-caption {
+.media-figure video+.media-caption {
     border-left-color: var(--accent-orange);
 }
 
@@ -1425,5 +1425,121 @@ a.media-figure:hover .media-caption {
     .media-caption {
         font-size: 0.75rem;
         padding: 6px 10px;
+    }
+}
+
+/* ============================================
+   可折疊行程區塊
+   - day-header 作為點擊觸發器
+   - 使用 collapsed class 控制 day-content 顯示/隱藏
+   - 包含平滑過渡動畫
+============================================ */
+
+/* 折疊觸發器 - 讓 day-header 可點擊 */
+.collapsible-trigger {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+/* hover 效果 - 滑過時微微變亮 */
+.collapsible-trigger:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    margin: calc(-1 * var(--spacing-md));
+    margin-bottom: calc(var(--spacing-xl) - var(--spacing-md));
+}
+
+/* 折疊指示圖示 */
+.collapse-icon {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    transition: transform var(--transition-normal);
+    flex-shrink: 0;
+    align-self: center;
+    margin-left: auto;
+    /* 預設展開狀態，箭頭朝上（旋轉180度） */
+    transform: rotate(180deg);
+}
+
+/* 折疊狀態下，箭頭恢復朝下（旋轉0度） */
+.day-section.collapsed .collapse-icon {
+    transform: rotate(0deg);
+}
+
+/* day-content 展開狀態 - 使用 max-height 動畫 */
+.day-content {
+    overflow: hidden;
+    max-height: 50000px;
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* day-content 折疊狀態 */
+.day-section.collapsed .day-content {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* ============================================
+   相簿連結卡片
+   - 紫色漸層背景
+   - 相機圖示和 hover 效果
+============================================ */
+.card-album {
+    border-left: 4px solid var(--accent-purple);
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.12), rgba(244, 114, 182, 0.06));
+    border-color: rgba(167, 139, 250, 0.3);
+}
+
+/* 相簿連結 hover 效果 */
+.card-album:hover {
+    border-color: rgba(167, 139, 250, 0.5);
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.18), rgba(244, 114, 182, 0.1));
+}
+
+/* 相簿連結按鈕樣式 */
+.album-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(244, 114, 182, 0.15));
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--accent-purple);
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    margin-top: var(--spacing-sm);
+}
+
+.album-link:hover {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(244, 114, 182, 0.2));
+    border-color: rgba(167, 139, 250, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(167, 139, 250, 0.2);
+}
+
+/* 響應式調整 - 折疊圖示在手機版的位置 */
+@media (max-width: 768px) {
+    .collapse-icon {
+        position: absolute;
+        top: var(--spacing-sm);
+        right: 0;
+    }
+
+    .collapsible-trigger {
+        padding-right: var(--spacing-xl);
+    }
+
+    .collapsible-trigger:hover {
+        margin: 0;
+        padding: 0;
+        padding-right: var(--spacing-xl);
+        background: none;
     }
 }
