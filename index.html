@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
@@ -96,6 +96,292 @@
          - 包含所有 9 天的行程卡片
     ============================================ -->
     <main class="main-content">
+
+        <!-- ============================================
+             出發前注意事項區塊
+             - 可依日期折疊（超過 2026-03-28 自動折疊）
+             - 使用既有 day-section 折疊機制
+        ============================================ -->
+        <section class="day-section checklist-section" id="pre-departure" data-date="2026-03-28">
+            <div class="day-header collapsible-trigger">
+                <div class="day-number" style="font-size: 1.8rem;">📋</div>
+                <div class="day-info">
+                    <span class="day-date">出發日：3月28日 (六) 前必讀</span>
+                    <h2 class="day-title">出發前注意事項</h2>
+                    <p class="day-highlight">護照證件・貨幣通訊・行動電源・行李打包・旅遊保險</p>
+                </div>
+                <div class="collapse-icon">▼</div>
+            </div>
+
+            <div class="day-content">
+
+                <!-- 護照與證件 -->
+                <div class="card card-checklist fade-in">
+                    <div class="card-icon">✈️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">護照與證件</h3>
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>護照效期：</strong>確認護照有效期限至少 6 個月以上（自入境日起算）</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>台胞證（卡式）：</strong>確認已辦妥且在有效期限內，入境中國大陸必備</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>證件影本/電子檔：</strong>備份護照、台胞證、機票電子檔至手機與雲端，以防遺失</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>2吋照片：</strong>備2張備用大頭照，以備不時之需</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 貨幣與支付 -->
+                <div class="card card-checklist fade-in">
+                    <div class="card-icon">💰</div>
+                    <div class="card-body">
+                        <h3 class="card-title">貨幣與支付</h3>
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>人民幣兌換：</strong>出發前兌換適量人民幣（建議至少準備1,000～2,000元人民幣備用）。</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>行動支付：</strong>提前設定好微信支付或支付寶，最好先預存一些人民幣，也可以綁定信用卡或銀行卡，中國境內大多數消費以行動支付為主</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>信用卡：</strong>可攜帶 VISA / MasterCard 國際信用卡備用，部分大型商場和酒店可使用</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 通訊與網路 -->
+                <div class="card card-checklist fade-in">
+                    <div class="card-icon">📱</div>
+                    <div class="card-body">
+                        <h3 class="card-title">通訊與網路</h3>
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>中國 SIM 卡 / eSIM：</strong>提前購買中國上網卡或eSIM（建議選擇有翻牆功能的方案，可正常使用
+                                    LINE、Google、Facebook）</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>VPN 準備：</strong>若使用中國當地 SIM 卡上網，需事先安裝 VPN 軟體，否則無法使用台灣常用 APP</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>離線地圖：</strong>建議下載高德地圖或百度地圖 APP，Google Maps 在中國境內無法正常使用</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ⚡ 行動電源攜帶規定（重點區塊） -->
+                <div class="card card-checklist card-powerbank fade-in">
+                    <div class="card-icon">🔋</div>
+                    <div class="card-body">
+                        <h3 class="card-title">行動電源攜帶規定（中國境內航段）</h3>
+                        <div class="powerbank-alert">
+                            <p>⚠️ <strong>重要公告：</strong>自 2025 年 6 月 28 日起，中國民航局（CAAC）規定搭乘中國境內航班，行動電源<strong>必須具有中國 CCC
+                                    認證標誌</strong>，否則將禁止攜帶登機！</p>
+                        </div>
+
+                        <!-- CCC 認證標誌說明 -->
+                        <div class="ccc-info-box">
+                            <div class="ccc-badge-container">
+                                <div class="ccc-badge">
+                                    <!-- 中國強制性產品認證 (CCC) 標誌 - 來源：Wikimedia Commons (公有領域) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        version="1.1" width="80" height="67" viewBox="0 0 240 200">
+                                        <!-- 外橢圓框 -->
+                                        <ellipse cx="120" cy="100" rx="115" ry="90"
+                                            style="stroke:#000; stroke-width:7px; fill:#fff;" />
+                                        <!-- 第一個 C -->
+                                        <path id="ccc-c" d="M 100,56 a 41, 43.5, 0, 0, 0, 1, 87"
+                                            style="stroke:#000; stroke-width:16px; fill:none;" />
+                                        <!-- 第二個 C (向右偏移 38) -->
+                                        <use xlink:href="#ccc-c" x="38" />
+                                        <!-- 第三個 C (向右偏移 76) -->
+                                        <use xlink:href="#ccc-c" x="76" />
+                                    </svg>
+                                </div>
+                                <div class="ccc-label">
+                                    <strong>CCC 認證標誌</strong>
+                                    <p>（中國強制性產品認證）</p>
+                                    <p>請確認行動電源本體上有此標誌</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔴</span>
+                                <div><strong>必須隨身攜帶：</strong>行動電源<strong>嚴禁託運</strong>，必須放在手提行李中帶上飛機</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔴</span>
+                                <div><strong>CCC 認證：</strong>行動電源本體上必須有清晰可見的 <strong>CCC
+                                        認證標誌</strong>（如上圖），標誌褪色、模糊不清者亦禁止攜帶</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔴</span>
+                                <div><strong>容量限制：</strong>
+                                    <ul class="powerbank-rules">
+                                        <li>🟢 <strong>100Wh 以下</strong>（約 27,000mAh / 3.7V）→ 可攜帶，限帶 2 個</li>
+                                        <li>🟡 <strong>100Wh ～ 160Wh</strong> → 需經航空公司同意</li>
+                                        <li>🔴 <strong>超過 160Wh</strong> → 全面禁止攜帶</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔴</span>
+                                <div><strong>瓦時計算：</strong>Wh = (mAh ÷ 1000) × V。例如：20,000mAh × 3.7V = 74Wh ✅</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔴</span>
+                                <div><strong>飛行中禁充電：</strong>航程中禁止使用行動電源為任何設備充電</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔴</span>
+                                <div><strong>不合格產品：</strong>外殼膨脹、損壞、變形，或未標示容量的行動電源，將被安檢沒收</div>
+                            </div>
+                        </div>
+
+                        <div class="powerbank-tip">
+                            💡 <strong>建議：</strong>出發前先檢查行動電源上是否有 CCC
+                            標誌，並將行動電源單獨放進透明密封袋或用絕緣膠帶貼住充電孔，避免金屬物品碰撞造成短路。也可以直接在中國境內購買一個有 CCC 認證的行動電源備用。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 常備藥品 -->
+                <div class="card card-checklist fade-in">
+                    <div class="card-icon">💊</div>
+                    <div class="card-body">
+                        <h3 class="card-title">常備藥品</h3>
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>高反預防藥：</strong>紅景天 / 丹木斯 / 海拔適（需上山前一天開始服用）</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>腸胃藥：</strong>適應不同飲食習慣，建議攜帶止瀉藥、胃藥</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>感冒藥與退燒藥：</strong>高海拔地區日夜溫差大，容易著涼</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>OK繃與消炎藥：</strong>戶外行程可能需要</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>個人處方藥：</strong>攜帶足夠天數的處方藥，並備好處方箋或英文藥品證明</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 行李打包建議 -->
+                <div class="card card-checklist fade-in">
+                    <div class="card-icon">🧳</div>
+                    <div class="card-body">
+                        <h3 class="card-title">行李打包建議</h3>
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>保暖衣物：</strong>九寨溝/黃龍地區海拔高、溫差大（5～15°C），建議洋蔥式穿搭，攜帶羽絨外套或衝鋒衣</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>防曬用品：</strong>高海拔地區紫外線強烈，備好防曬霜（SPF50+）、太陽眼鏡、帽子</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>雨具：</strong>摺疊雨傘或輕便雨衣，九寨溝地區常有陣雨</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>舒適好走的鞋：</strong>行程多步行與爬山，建議穿防滑防水的健行鞋或運動鞋</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>轉接插頭：</strong>中國大陸使用雙腳扁型插座（與台灣部分相容，三孔則需轉接頭）</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>保溫瓶：</strong>九寨溝日間遊覽時間長，建議攜帶保溫瓶裝熱水</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 天氣與穿搭 -->
+                <div class="card card-checklist fade-in">
+                    <div class="card-icon">🌡️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">天氣與穿搭建議</h3>
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔹</span>
+                                <div><strong>上海（3/28）：</strong>約 10～25°C，春裝搭配薄外套即可</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔹</span>
+                                <div><strong>成都（3/29、4/1）：</strong>約 12～22°C，春裝外加輕薄外套</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔹</span>
+                                <div><strong>黃龍/九寨溝（3/30～3/31）：</strong>約 5～15°C，需厚外套或羽絨衣，做好保暖</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔹</span>
+                                <div><strong>峨眉山金頂（4/2～4/3）：</strong>約 5～10°C，山頂極寒，必備羽絨衣與手套</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">🔹</span>
+                                <div><strong>烏鎮（4/4）：</strong>約 10～25°C，與上海氣候相近，春裝即可</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 旅遊保險 -->
+                <div class="card card-checklist fade-in">
+                    <div class="card-icon">🛡️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">旅遊保險</h3>
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>旅遊平安險：</strong>建議投保含海外醫療、意外險、緊急救援的旅平險</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>不便險：</strong>建議加保行李延誤、航班延誤等不便險</div>
+                            </div>
+                            <div class="checklist-item">
+                                <span class="checklist-bullet">✅</span>
+                                <div><strong>保單副本：</strong>將保單截圖或電子檔存在手機備用</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <!-- ========== Day 1: 3月28日 高雄 → 上海 ========== -->
         <section class="day-section" id="day1" data-date="2026-03-28">

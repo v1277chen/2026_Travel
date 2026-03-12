@@ -1429,6 +1429,183 @@ a.media-figure:hover .media-caption {
 }
 
 /* ============================================
+   出發前注意事項區塊
+   - checklist 卡片樣式
+   - CCC 認證標誌容器
+   - 行動電源規定高亮區塊
+============================================ */
+
+/* 注意事項區塊 - 整體容器 */
+.checklist-section {
+    border-top: 2px solid rgba(251, 191, 36, 0.3);
+}
+
+/* 注意事項卡片 - 綠色漸層邊框 */
+.card-checklist {
+    border-left: 4px solid var(--accent-green);
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.08), rgba(56, 189, 248, 0.04));
+}
+
+/* 條列式清單容器 */
+.checklist-items {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+/* 單一條列項目 - 圖示 + 內容 */
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    transition: background var(--transition-fast);
+}
+
+/* hover 效果 - 微微變亮 */
+.checklist-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* 條列圖示（emoji bullet） */
+.checklist-bullet {
+    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    width: 1.5em;
+    text-align: center;
+}
+
+/* ---- 行動電源重點卡片 ---- */
+.card-powerbank {
+    border-left: 4px solid #ef4444;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(251, 191, 36, 0.06));
+}
+
+/* 行動電源警告橫幅 */
+.powerbank-alert {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    color: #fca5a5;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.powerbank-alert strong {
+    color: #fca5a5;
+}
+
+/* CCC 認證標誌資訊區塊 */
+.ccc-info-box {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+}
+
+/* CCC 標誌容器 - 橫向排列 */
+.ccc-badge-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* CCC 標誌圓形圖示 */
+.ccc-badge {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* CCC 標誌旁的文字說明 */
+.ccc-label {
+    flex: 1;
+    min-width: 150px;
+}
+
+.ccc-label strong {
+    font-size: 1.1rem;
+    color: var(--accent-yellow);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.ccc-label p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+}
+
+/* 行動電源容量規則列表 */
+.powerbank-rules {
+    list-style: none;
+    padding-left: 0;
+    margin: var(--spacing-xs) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.powerbank-rules li {
+    padding: 6px var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* 行動電源建議提示框 */
+.powerbank-tip {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(56, 189, 248, 0.1);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* 手機版出發前注意事項調整 */
+@media (max-width: 768px) {
+    .ccc-badge-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ccc-label {
+        text-align: center;
+    }
+
+    .checklist-item {
+        font-size: 0.8125rem;
+    }
+
+    .powerbank-alert {
+        font-size: 0.8125rem;
+    }
+}
+
+
+/* ============================================
    可折疊行程區塊
    - day-header 作為點擊觸發器
    - 使用 collapsed class 控制 day-content 顯示/隱藏
